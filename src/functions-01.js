@@ -21,7 +21,6 @@ function nameShuffle(str) {
   return `${names[1]}, ${names[0]}`; // concatenate the last name followed by a comma and the first name
 }
 
-
 /**
  * returns true if a pair of strings is a "strange pair",
  * and false otherwise.
@@ -37,7 +36,13 @@ function nameShuffle(str) {
  * example: '&', '&' returns true
  */
 function isStrangePair(str1, str2) {
-  // write your code here & return value
+  const firstStr1 = str1[0];
+  const lastStr1 = str1[str1.length - 1];
+
+  const firstStr2 = str2[0];
+  const lastStr2 = str2[str2.length - 1];
+
+  return firstStr1 === lastStr2 && firstStr2 === lastStr1;
 }
 
 /**
@@ -49,7 +54,11 @@ function isStrangePair(str1, str2) {
  * example: '98.6%' returns 0.986
  */
 function convertToDecimal(percent) {
-  // write your code here & return value
+  const percentage = percent.slice(0, -1);
+
+  const decimal = parseFloat(percentage) / 100;
+
+  return decimal;
 }
 
 /**
@@ -62,7 +71,12 @@ function convertToDecimal(percent) {
  * example: [1, 2, 3, 4], [4, 3, 2, 1, 5] returns false
  */
 function checkSameSum(a1, a2) {
-  // write your code here & return value
+  // Calculate the sum of each array
+  const sum1 = a1.reduce((acc, val) => acc + val, 0);
+  const sum2 = a2.reduce((acc, val) => acc + val, 0);
+
+  // Compare the sums and return true if they are equal
+  return sum1 === sum2;
 }
 
 /**
